@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.6.2",
     "cuid": "^2.1.6",
     "date-fns": "^2.0.0-alpha.27",
     "firebase": "^6.0.2",
@@ -27,7 +28,9 @@
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
     "revalidate": "^1.2.0",
-    "semantic-ui-react": "^0.87.1"
+    "semantic-ui-react": "^0.87.1",
+    "webpack": "^4.29.6",
+    "yarn": "^1.17.3"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
