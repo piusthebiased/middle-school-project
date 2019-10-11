@@ -7,13 +7,13 @@ import cuid from 'cuid';
 const eventsFromDashboard = [
   {
     id: '1',
-    title: 'Trip to Tower of London',
+    title: 'Art at FACS Mod',
     date: '2018-03-27',
-    category: 'culture',
+    category: 'art',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
-    city: 'London, UK',
-    venue: "Tower of London, St Katharine's & Wapping, London",
+      'Do art at FACS Mod',
+    city: 'FACS MOD',
+    venue: "Crafting, Drawing, Designing",
     hostedBy: 'Bob',
     hostPhotoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
     attendees: [
@@ -31,13 +31,13 @@ const eventsFromDashboard = [
   },
   {
     id: '2',
-    title: 'Trip to Punch and Judy Pub',
+    title: 'Math tutoring at A12',
     date: '2018-03-28',
-    category: 'drinks',
+    category: 'teach',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.',
-    city: 'London, UK',
-    venue: 'Punch & Judy, Henrietta Street, London, UK',
+      'Get tutored peer to peer at A12',
+    city: 'A12',
+    venue: 'Math 6/7, Math 8, Algreba 1',
     hostedBy: 'Tom',
     hostPhotoURL: 'https://randomuser.me/api/portraits/men/22.jpg',
     attendees: [
