@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import { Button, Form, Segment, Header, Comment } from 'semantic-ui-react';
+import { Segment, Header, Comment, Form, Button } from 'semantic-ui-react';
 
 const EventDetailedChat = () => {
   return (
     <Fragment>
       <Segment
-        textAlign="center"
-        attached="top"
+        textAlign='center'
+        attached='top'
         inverted
-        color="teal"
+        color='teal'
         style={{ border: 'none' }}
       >
         <Header>Chat about this event</Header>
@@ -17,9 +17,9 @@ const EventDetailedChat = () => {
       <Segment attached>
         <Comment.Group>
           <Comment>
-            <Comment.Avatar src="/assets/user.png" />
+            <Comment.Avatar src='/assets/user.png' />
             <Comment.Content>
-              <Comment.Author as="a">Matt</Comment.Author>
+              <Comment.Author as='a'>Matt</Comment.Author>
               <Comment.Metadata>
                 <div>Today at 5:42PM</div>
               </Comment.Metadata>
@@ -31,9 +31,9 @@ const EventDetailedChat = () => {
           </Comment>
 
           <Comment>
-            <Comment.Avatar src="/assets/user.png" />
+            <Comment.Avatar src='/assets/user.png' />
             <Comment.Content>
-              <Comment.Author as="a">Elliot Fu</Comment.Author>
+              <Comment.Author as='a'>Elliot Fu</Comment.Author>
               <Comment.Metadata>
                 <div>Yesterday at 12:30AM</div>
               </Comment.Metadata>
@@ -48,9 +48,9 @@ const EventDetailedChat = () => {
             </Comment.Content>
             <Comment.Group>
               <Comment>
-                <Comment.Avatar src="/assets/user.png" />
+                <Comment.Avatar src='/assets/user.png' />
                 <Comment.Content>
-                  <Comment.Author as="a">Jenny Hess</Comment.Author>
+                  <Comment.Author as='a'>Jenny Hess</Comment.Author>
                   <Comment.Metadata>
                     <div>Just now</div>
                   </Comment.Metadata>
@@ -64,9 +64,9 @@ const EventDetailedChat = () => {
           </Comment>
 
           <Comment>
-            <Comment.Avatar src="/assets/user.png" />
+            <Comment.Avatar src='/assets/user.png' />
             <Comment.Content>
-              <Comment.Author as="a">Joe Henderson</Comment.Author>
+              <Comment.Author as='a'>Joe Henderson</Comment.Author>
               <Comment.Metadata>
                 <div>5 days ago</div>
               </Comment.Metadata>
@@ -80,9 +80,9 @@ const EventDetailedChat = () => {
           <Form reply>
             <Form.TextArea />
             <Button
-              content="Add Reply"
-              labelPosition="left"
-              icon="edit"
+              content='Add Reply'
+              labelPosition='left'
+              icon='edit'
               primary
             />
           </Form>

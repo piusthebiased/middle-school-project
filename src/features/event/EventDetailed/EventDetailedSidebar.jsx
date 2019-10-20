@@ -6,36 +6,36 @@ const EventDetailedSidebar = ({ attendees }) => {
   return (
     <Fragment>
       <Segment
-        textAlign="center"
+        textAlign='center'
         style={{ border: 'none' }}
-        attached="top"
+        attached='top'
         secondary
         inverted
-        color="teal"
+        color='teal'
       >
         {attendees && attendees.length} {attendees && attendees.length === 1 ? 'Person' : 'People'} Going
       </Segment>
       <Segment attached>
-        {attendees &&
-          attendees.map(attendee => (
-            <Item.Group divided>
+        <Item.Group divided>
+          {attendees &&
+            attendees.map(attendee => (
               <Item key={attendee.id} style={{ position: 'relative' }}>
-                {isHost && 
+                {isHost && (
                   <Label
                     style={{ position: 'absolute' }}
-                    color="orange"
-                    ribbon="right"
+                    color='orange'
+                    ribbon='right'
                   >
                     Host
                   </Label>
-                }
-                <Item.Image size="tiny" src={attendee.photoURL} />
-                <Item.Content verticalAlign="middle">
-                  <Item.Header as="h3">{attendee.name}</Item.Header>
+                )}
+                <Item.Image size='tiny' src={attendee.photoURL} />
+                <Item.Content verticalAlign='middle'>
+                  <Item.Header as='h3'>{attendee.name}</Item.Header>
                 </Item.Content>
               </Item>
-            </Item.Group>
-          ))}
+            ))}
+        </Item.Group>
       </Segment>
     </Fragment>
   );
