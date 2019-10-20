@@ -15,11 +15,11 @@ const HomePage = ({history}) => {
         <Header as='h1' inverted>
           <Image
             size='massive'
-            src='/assets/logo.png'
+            src='/assets/test.jpg'
             alt='logo'
             style={{ marginBottom: 12 }}
           />
-          Re-vents
+          Before School Clubs
         </Header>
         <Button size='huge' inverted onClick={() => history.push('/events')}>
           Get started

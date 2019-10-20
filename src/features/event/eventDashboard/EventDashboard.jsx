@@ -1,152 +1,52 @@
 import React, { Component } from 'react';
-import { Grid, Button } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import {connect} from 'react-redux';
 import EventList from '../EventList/EventList';
-import EventForm from '../EventForm/EventForm';
 import cuid from 'cuid';
+import {createEvent, deleteEvent, updateEvent} from '../eventActions'
 
-const eventsFromDashboard = [
-  {
-    id: '1',
-    title: 'Art at FACS Mod',
-    date: '2018-03-27',
-    category: 'art',
-    description:
-      'Do art at FACS Mod',
-    city: 'FACS MOD',
-    venue: "Crafting, Drawing, Designing",
-    hostedBy: 'Bob',
-    hostPhotoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
-    attendees: [
-      {
-        id: 'a',
-        name: 'Bob',
-        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
-      },
-      {
-        id: 'b',
-        name: 'Tom',
-        photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
-      }
-    ]
-  },
-  {
-    id: '2',
-    title: 'Math tutoring at A12',
-    date: '2018-03-28',
-    category: 'teach',
-    description:
-      'Get tutored peer to peer at A12',
-    city: 'A12',
-    venue: 'Math 6/7, Math 8, Algreba 1',
-    hostedBy: 'Tom',
-    hostPhotoURL: 'https://randomuser.me/api/portraits/men/22.jpg',
-    attendees: [
-      {
-        id: 'b',
-        name: 'Tom',
-        photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
-      },
-      {
-        id: 'a',
-        name: 'Bob',
-        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
-      }
-    ]
-  }
-];
+const mapState = (state) => ({
+  events: state.events
+})
+
+const actions = {
+  createEvent,
+  deleteEvent,
+  updateEvent
+}
 
 class EventDashboard extends Component {
-  state = {
-    events: eventsFromDashboard,
-    isOpen: false,
-    selectedEvent: null
-  };
-
-  // handleIsOpenToggle = () => {
-  //   this.setState(({ isOpen }) => ({
-  //     isOpen: !isOpen
-  //   }));
-  // };
-
-  handleCreateFormOpen = () => {
-    this.setState({
-      isOpen: true,
-      selectedEvent: null
-    });
-  };
-
-  handleFormCancel = () => {
-    this.setState({
-      isOpen: false
-    });
-  };
 
   handleCreateEvent = newEvent => {
     newEvent.id = cuid();
     newEvent.hostPhotoURL = '/assets/user.png';
-    this.setState(({ events }) => ({
-      events: [...events, newEvent],
-      isOpen: false
-    }));
-  };
-
-  handleSelectEvent = event => {
-    this.setState({
-      selectedEvent: event,
-      isOpen: true
-    });
+    this.props.createEvent(newEvent);
   };
 
   handleUpdateEvent = updatedEvent => {
-    this.setState(({ events }) => ({
-      events: events.map(event => {
-        if (event.id === updatedEvent.id) {
-          return { ...updatedEvent };
-        } else {
-          return event;
-        }
-      }),
-      isOpen: false,
-      selectedEvent: null
-    }));
+    this.props.updateEvent(updatedEvent);
   };
 
   handleDeleteEvent = id => {
-    this.setState(({ events }) => ({
-      events: events.filter(e => e.id !== id)
-    }));
+    this.props.deleteEvent(id);
   };
 
   render() {
-    const { events, isOpen, selectedEvent } = this.state;
+    const { events } = this.props;
     return (
       <Grid>
         <Grid.Column width={10}>
           <EventList
             events={events}
-            selectEvent={this.handleSelectEvent}
             deleteEvent={this.handleDeleteEvent}
           />
         </Grid.Column>
         <Grid.Column width={6}>
-          <Button
-            positive
-            content='Create Event'
-            onClick={this.handleCreateFormOpen}
-          />
-          {isOpen && (
-            <EventForm
-              key={selectedEvent ? selectedEvent.id : 0}
-              selectedEvent={selectedEvent}
-              cancelFormOpen={this.handleFormCancel}
-              createEvent={this.handleCreateEvent}
-              updateEvent={this.handleUpdateEvent}
-            />
-          )}
+          <h2>Activity Feed</h2>
         </Grid.Column>
       </Grid>
     );
   }
 }
 
-export default EventDashboard;
+export default connect(mapState, actions)(EventDashboard);
