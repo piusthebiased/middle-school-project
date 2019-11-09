@@ -13,6 +13,7 @@ import TestComponent from '../../features/testarea/TestComponent';
 
 class App extends Component {
   render() {
+    document.title = 'Before School Clubs';
     return (
       <Fragment>
         <Route exact path='/' component={HomePage} />

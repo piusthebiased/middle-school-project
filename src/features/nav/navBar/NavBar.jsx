@@ -6,7 +6,7 @@ import SignedInMenu from '../Menus/SignedInMenu';
 
 class NavBar extends Component {
   state = {
-    authenticated: true
+    authenticated: false
   };
 
   handleSignIn = () => this.setState({ authenticated: true });
@@ -22,11 +22,11 @@ class NavBar extends Component {
         <Container>
           <Menu.Item as={NavLink} exact to='/' header>
             <img src='/assets/logo.png' alt='logo' />
-            Re-vents
+            Before School Clubs
           </Menu.Item>
           <Menu.Item as={NavLink} exact to='/events' name='Events' />
           <Menu.Item as={NavLink} to='/people' name='People' />
-          <Menu.Item as={NavLink} to='/test' name='Test' />
+          <Menu.Item as={NavLink} to='/test' name='Credits' />
           <Menu.Item>
             <Button
               as={Link}
